@@ -41,6 +41,7 @@ class _HomepageState extends State<Homepage> {
 
 
   List<Details> info = [
+
     Details(name: "Babul Mirdha", mobile: "01616983473", email: "babulmirdha@gmail.com", image: "assets/babul.png"),
     Details(name: "Amirul Haque Shuhan", mobile: "017729955866", email: "shuan@gmail.com", image: "assets/shuhan.png"),
     Details(name: "Naimul Hassan", mobile: "01865965581", email: "naimulhassan0001@gmail.com", image: "assets/naimul.jpg"),

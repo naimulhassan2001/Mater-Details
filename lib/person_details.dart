@@ -48,6 +48,7 @@ class Naimul extends StatelessWidget {
               children: [
                 const SizedBox(height: 20,),
                 CircleAvatar(
+
                   radius: MediaQuery.of(context).size.width *0.5 , // Image radius
                   backgroundImage: AssetImage(image),
                 ),
