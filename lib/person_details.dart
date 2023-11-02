@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
-class Naimul extends StatelessWidget {
+class Details extends StatelessWidget {
 
   String name ;
   String mobile;
@@ -12,22 +12,17 @@ class Naimul extends StatelessWidget {
   String image ;
 
 
-  Naimul({super.key, required this.name, required this.mobile, required this.email, required this.image});
+  Details({super.key, required this.name, required this.mobile, required this.email, required this.image});
 
 
 
 
   callNumber() async {
-
     Uri dialNumber = Uri(scheme: 'tel', path: mobile );
     await launchUrl(dialNumber);
-
-
   }
 
-
-
-  callemail() async {
+  emailTo() async {
     Uri dialemail = Uri(scheme: 'mailto', path: email );
     await launchUrl(dialemail);
   }
@@ -37,63 +32,38 @@ class Naimul extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SafeArea(
-        child: Scaffold(
-          body: SingleChildScrollView(
+      home: Scaffold(
+        body: SingleChildScrollView(
+          child: SafeArea(
             child: Column(
               children: [
-                const SizedBox(height: 20,),
+                const SizedBox(height: 30,),
                 CircleAvatar(
-
-                  radius: MediaQuery.of(context).size.width *0.5 , // Image radius
+                  radius: MediaQuery.of(context).size.width *0.3 , // Image radius
                   backgroundImage: AssetImage(image),
                 ),
-                SizedBox(height: 30,),
+                const SizedBox(height: 30,),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Name: $name", style: const TextStyle(fontSize: 20),),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("Mobile: $mobile", style: const TextStyle(fontSize: 20),),
-                          Container(
-                            width: 85,
-                            alignment: Alignment.topRight,
-                            child: ElevatedButton(onPressed: callNumber, child: const Row(
-                              children: [
-                                Icon(Icons.call),
-                                Text("Call")
-                              ],
-                            ))
+                      Text("Name: $name", style: const TextStyle(fontSize: 14),),
 
-                          )
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+
+                        children: [
+                          IconButton(onPressed: callNumber, icon: const Icon(Icons.call)),
+                          Text("Mobile: $mobile", style: const TextStyle(fontSize: 14),),
                         ],
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Text("E-mail: $email", style: const TextStyle(fontSize: 20),)),
-                          Container(
-                            width: 85,
-                            alignment: Alignment.topRight,
-                            child: ElevatedButton(onPressed: callemail, child: const Row(
-                              children: [
-                                Icon(Icons.mail),
-                                Text("mail")
-                              ],
-                            ))
-
-                          )
+                          IconButton(onPressed: emailTo, icon: const Icon(Icons.mail),),
+                          Text("E-mail: $email", style: const TextStyle(fontSize: 14),),
 
                         ],
                       ),
