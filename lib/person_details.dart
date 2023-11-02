@@ -23,8 +23,8 @@ class Details extends StatelessWidget {
   }
 
   emailTo() async {
-    Uri dialemail = Uri(scheme: 'mailto', path: email );
-    await launchUrl(dialemail);
+    Uri dialEmail = Uri(scheme: 'mailto', path: email );
+    await launchUrl(dialEmail);
   }
 
 
