@@ -50,19 +50,23 @@ class Details extends StatelessWidget {
                   child: Column(
                     children: [
                       Text("Name: $name", style: const TextStyle(fontSize: 14),),
+                      const SizedBox(height: 4,),
 
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
 
                         children: [
-                          IconButton(onPressed: callNumber, icon: const Icon(Icons.call)),
+                          GestureDetector(onTap: callNumber,
+                              child: const Icon(Icons.call)),
+                          const SizedBox(width: 8,),
                           Text("Mobile: $mobile", style: const TextStyle(fontSize: 14),),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          IconButton(onPressed: emailTo, icon: const Icon(Icons.mail),),
+                          GestureDetector(onTap: emailTo,child: const Icon(Icons.mail)),
+                          const SizedBox(width: 8,),
                           Text("E-mail: $email", style: const TextStyle(fontSize: 14),),
 
                         ],
